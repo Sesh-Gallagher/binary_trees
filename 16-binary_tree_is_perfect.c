@@ -29,6 +29,24 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 }
 
 /**
+ *_pow_recursion - Function that returns value of x raised to the power of y
+ *@x: is the value to exponentiate
+ *@y: is the power to raise x to
+ *Return: x to the power of y, or -1 if y is negative
+ *
+ */
+
+int _pow_recursion(int x, int y)
+{
+	if (y < 0)
+		return (-1);
+	if (y == 0)
+		return (1);
+	else
+		return (x * _pow_recursion(x, y - 1));
+}
+
+/**
  * binary_tree_height - measures the height of a binary tree
  * @tree: pointer to the root node of the tree to measure the height.
  *
@@ -63,23 +81,4 @@ size_t binary_tree_size(const binary_tree_t *tree)
 		return (0);
 
 	return (binary_tree_size(tree->left) + binary_tree_size(tree->right) + 1);
-}
-
-/**
- *_pow_recursion - Function that returns value of a raised to the power of b
- *@a: is the value to exponentiate
- *@b: is the power to raise x to
- *Return: a to the power of b, or -1 if b is negative
- *
- */
-
-int _pow_recursion(int a, int b)
-{
-	if (b < 0)
-		return (-1);
-	if (b == 0)
-		return (1);
-	else
-		return (a * _pow_recursion(a, b - 1));
-
 }
